@@ -1,0 +1,50 @@
+.map-container {
+  width: 100%;
+  height: 300px;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  margin: var(--spacing-lg) 0;
+}
+
+.leaflet-map {
+  width: 100%;
+  height: 100%;
+}
+
+.map-placeholder {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary-color);
+  margin: var(--spacing-lg) 0;
+}
+
+.map-icon {
+  font-size: 48px;
+  margin-bottom: var(--spacing-sm);
+  opacity: 0.5;
+}
+
+.map-popup {
+  text-align: center;
+  padding: var(--spacing-xs);
+}
+
+.map-popup strong {
+  color: var(--primary-color);
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .map-container {
+    height: 250px;
+  }
+}

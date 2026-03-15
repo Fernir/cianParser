@@ -1,0 +1,50 @@
+cd /Users/mac/Desktop/cianLite
+cat > .gitignore << 'EOF'
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.env
+.venv
+*.log
+*.pot
+*.pyc
+.pytest_cache/
+.coverage
+htmlcov/
+
+# База данных
+*.db
+*.db-journal
+
+# Фото
+static/photos/*
+!static/photos/.gitkeep
+
+# Frontend
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/dist/
+frontend/build/
+frontend/.env.local
+frontend/.env.production
+frontend/.env.development
+frontend/package-lock.json
+frontend/yarn.lock
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+EOF
