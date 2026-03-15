@@ -1,0 +1,50 @@
+.termsBlock {
+  margin: 20px 0;
+}
+
+.termsTitle {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.termsList {
+  background: var(--hover-bg);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--card-border);
+}
+
+.termItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--card-border);
+  transition: background 0.3s;
+}
+
+.termItem:last-child {
+  border-bottom: none;
+}
+
+.termItem:hover {
+  background: var(--card-bg);
+}
+
+.termLabel {
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.termValue {
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 14px;
+  background: var(--card-bg);
+  padding: 4px 12px;
+  border-radius: 30px;
+  border: 1px solid var(--card-border);
+}

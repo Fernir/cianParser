@@ -1,0 +1,159 @@
+.apartmentListContainer {
+  min-height: 100vh;
+  padding: 32px 0;
+  background: #f8fafc;
+}
+
+.apartmentListContainer h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  color: #64748b;
+  margin-bottom: 24px;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.apartmentGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+  margin: 24px 0;
+}
+
+.errorContainer {
+  text-align: center;
+  padding: 48px 32px;
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.errorContainer h3 {
+  font-size: 1.5rem;
+  color: #ef4444;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.errorContainer p {
+  color: #64748b;
+  margin-bottom: 24px;
+}
+
+.retryBtn {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: white;
+  padding: 12px 32px;
+  border-radius: 40px;
+  margin-top: 16px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.3s;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.retryBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+}
+
+.noResults {
+  text-align: center;
+  padding: 48px 32px;
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.noResults h3 {
+  font-size: 1.5rem;
+  color: #64748b;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.resultsInfo {
+  text-align: center;
+  color: #64748b;
+  margin-top: 24px;
+  padding: 16px;
+  font-size: 0.95rem;
+  background: white;
+  border-radius: 40px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Темная тема */
+@media (prefers-color-scheme: dark) {
+  .apartmentListContainer {
+    background: #0f172a;
+  }
+
+  .apartmentListContainer h1 {
+    color: #f1f5f9;
+  }
+
+  .subtitle {
+    color: #94a3b8;
+  }
+
+  .errorContainer {
+    background: #1e293b;
+    border: 1px solid #334155;
+  }
+
+  .errorContainer p {
+    color: #94a3b8;
+  }
+
+  .noResults {
+    background: #1e293b;
+    border: 1px solid #334155;
+  }
+
+  .noResults h3 {
+    color: #94a3b8;
+  }
+
+  .resultsInfo {
+    background: #1e293b;
+    border: 1px solid #334155;
+    color: #94a3b8;
+  }
+}
+
+@media (max-width: 768px) {
+  .apartmentGrid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  .apartmentListContainer h1 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .apartmentGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .apartmentListContainer {
+    padding: 20px 0;
+  }
+}

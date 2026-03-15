@@ -1,0 +1,47 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 40px 0 20px;
+  flex-wrap: wrap;
+}
+
+.pageLink {
+  min-width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  color: var(--text-primary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+  padding: 0 16px;
+}
+
+.pageLink:hover {
+  background: var(--hover-bg);
+  border-color: var(--card-border);
+  transform: translateY(-2px);
+}
+
+.pageLink.active {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+}
+
+.pageLink.active:hover {
+  background: var(--primary-dark);
+}
+
+.paginationEllipsis {
+  color: var(--text-muted);
+  padding: 0 4px;
+  font-weight: 600;
+}

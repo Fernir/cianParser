@@ -1,0 +1,337 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--card-bg);
+  border-radius: 24px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 100%;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 30px -10px rgba(37, 99, 235, 0.2);
+  border-color: var(--primary-color);
+}
+
+.cardImage {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+}
+
+:global(.dark) .cardImage {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+}
+
+.cardImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.card:hover .cardImage img {
+  transform: scale(1.08);
+}
+
+.photoCount {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 2;
+}
+
+.badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 700;
+  z-index: 2;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.badge.urgent {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+}
+
+.badge.special {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: white;
+}
+
+.cardContent {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  background: var(--card-bg);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.cardPrice {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.pricePerMeter {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  background: var(--hover-bg);
+  padding: 4px 10px;
+  border-radius: 30px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.cardTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cardAddress {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  background: var(--hover-bg);
+  padding: 10px 12px;
+  border-radius: 16px;
+  border: 1px solid var(--card-border);
+}
+
+.addressIcon {
+  font-size: 1rem;
+  min-width: 20px;
+}
+
+.addressText {
+  flex: 1;
+  word-break: break-word;
+  line-height: 1.4;
+}
+
+.cardMetro {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  background: #eef2ff;
+  padding: 10px 16px;
+  border-radius: 40px;
+  border: 1px solid #bfdbfe;
+  flex-wrap: wrap;
+}
+
+:global(.dark) .cardMetro {
+  background: #1e3a8a;
+  border-color: #2563eb;
+}
+
+.metroIcon {
+  font-size: 1rem;
+}
+
+.metroText {
+  font-weight: 600;
+  color: #1e40af;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+}
+
+:global(.dark) .metroText {
+  color: #f1f5f9;
+}
+
+.metroLine {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.metroTime {
+  font-size: 0.8rem;
+  color: var(--primary-color);
+  background: rgba(37, 99, 235, 0.1);
+  padding: 2px 8px;
+  border-radius: 30px;
+  font-weight: 600;
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+:global(.dark) .metroTime {
+  background: rgba(255, 255, 255, 0.15);
+  color: #f1f5f9;
+}
+
+.cardDetails {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.detailItem {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  background: var(--hover-bg);
+  padding: 6px 12px;
+  border-radius: 30px;
+  border: 1px solid var(--card-border);
+  transition: all 0.2s;
+}
+
+.detailItem:hover {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+.detailIcon {
+  font-size: 0.9rem;
+}
+
+.cardAmenities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 4px 0;
+}
+
+.amenityTag {
+  background: var(--hover-bg);
+  padding: 4px 10px;
+  border-radius: 30px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  border: 1px solid var(--card-border);
+  transition: all 0.2s;
+  cursor: default;
+}
+
+.amenityTag:hover {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+.amenityTag.more {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 2px solid var(--card-border);
+  font-size: 0.8rem;
+}
+
+.cardDate {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.dateIcon {
+  font-size: 0.9rem;
+}
+
+.authorBadge {
+  padding: 4px 12px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: var(--hover-bg);
+  color: var(--text-secondary);
+}
+
+.authorBadge.owner {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #86efac;
+}
+
+:global(.dark) .authorBadge.owner {
+  background: #14532d;
+  color: #86efac;
+  border-color: #166534;
+}
+
+.authorBadge.agency {
+  background: #dbeafe;
+  color: #1e40af;
+  border: 1px solid #93c5fd;
+}
+
+:global(.dark) .authorBadge.agency {
+  background: #1e3a8a;
+  color: #bfdbfe;
+  border-color: #1e40af;
+}
+
+/* Адаптивность для сетки - фиксим ширину */
+@media (max-width: 1200px) {
+  .card {
+    max-width: 100%;
+  }
+}

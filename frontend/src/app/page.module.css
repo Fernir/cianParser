@@ -1,0 +1,454 @@
+.main {
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  padding: 40px 0;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  margin-bottom: 32px;
+  font-size: 1.1rem;
+}
+
+/* Фильтры */
+.filters {
+  background: var(--card-bg);
+  border-radius: 24px;
+  padding: 24px;
+  margin-bottom: 32px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--card-border);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  align-items: end;
+}
+
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filterGroup label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.filterInputs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--hover-bg);
+  border-radius: 12px;
+  padding: 4px;
+}
+
+.filterInput {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  font-size: 14px;
+  background: var(--card-bg);
+  color: var(--text-primary);
+  transition: all 0.2s;
+  width: 100%;
+}
+
+.filterInput:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.filterInput::placeholder {
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.filterSelect {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  font-size: 14px;
+  background: var(--card-bg);
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.filterSeparator {
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.roomTabs {
+  display: flex;
+  gap: 6px;
+  background: var(--hover-bg);
+  padding: 4px;
+  border-radius: 40px;
+}
+
+.roomTab {
+  flex: 1;
+  padding: 8px 12px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: transparent;
+  border: none;
+}
+
+.roomTab:hover {
+  background: var(--card-border);
+  color: var(--text-primary);
+}
+
+.roomTab.active {
+  background: var(--primary-color);
+  color: white;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+}
+
+.expandButton {
+  background: var(--hover-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 40px;
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: fit-content;
+  align-self: flex-end;
+  white-space: nowrap;
+}
+
+.expandButton:hover {
+  background: var(--card-border);
+  color: var(--text-primary);
+}
+
+.expandedFilters {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  padding: 20px 0 8px;
+  border-top: 1px solid var(--card-border);
+  margin-top: 8px;
+}
+
+.checkboxGroup {
+  display: flex;
+  align-items: center;
+  padding: 4px 0;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  user-select: none;
+}
+
+.checkboxLabel input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkboxCustom {
+  position: relative;
+  height: 20px;
+  width: 20px;
+  background: var(--card-bg);
+  border: 2px solid var(--card-border);
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.checkboxLabel:hover .checkboxCustom {
+  border-color: var(--primary-color);
+  background: var(--hover-bg);
+}
+
+.checkboxLabel input:checked ~ .checkboxCustom {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.checkboxLabel input:checked ~ .checkboxCustom:after {
+  content: '✓';
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.buttonGroup {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.applyButton {
+  flex: 2;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.applyButton:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+.resetButton {
+  flex: 1;
+  background: var(--card-bg);
+  color: var(--text-muted);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 12px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.resetButton:hover {
+  background: var(--hover-bg);
+  color: var(--text-primary);
+  border-color: var(--text-muted);
+}
+
+.filterNote {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 10px;
+  background: #fef9c3;
+  border-radius: 40px;
+  color: #854d0e;
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid #fde047;
+  margin-top: 8px;
+}
+
+:global(.dark) .filterNote {
+  background: #422006;
+  color: #fbbf24;
+  border-color: #854d0e;
+}
+
+/* Сетка квартир */
+.apartmentGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+  margin: 32px 0;
+}
+
+/* Пагинация */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 40px 0 20px;
+  flex-wrap: wrap;
+}
+
+.pageLink {
+  min-width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  color: var(--text-primary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+  padding: 0 16px;
+}
+
+.pageLink:hover {
+  background: var(--hover-bg);
+  border-color: var(--card-border);
+  transform: translateY(-2px);
+}
+
+.pageLink.active {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+}
+
+/* Результаты */
+.resultsInfo {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  padding: 16px;
+  background: var(--card-bg);
+  border-radius: 40px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  display: inline-block;
+  margin: 0 auto;
+  width: auto;
+  border: 1px solid var(--card-border);
+}
+
+/* Пустые результаты */
+.noResults {
+  text-align: center;
+  padding: 64px 32px;
+  background: var(--card-bg);
+  border-radius: 32px;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  max-width: 500px;
+  margin: 40px auto;
+}
+
+.noResultsIcon {
+  font-size: 64px;
+  margin-bottom: 20px;
+  display: block;
+  opacity: 0.5;
+}
+
+.noResults h3 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.noResults p {
+  color: var(--text-muted);
+}
+
+/* Адаптивность */
+@media (max-width: 1200px) {
+  .apartmentGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .filters {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .filterInputs {
+    flex-direction: row;
+    background: var(--hover-bg);
+    padding: 2px;
+  }
+
+  .roomTabs {
+    flex-wrap: wrap;
+  }
+
+  .roomTab {
+    flex: 1 0 auto;
+    padding: 8px 12px;
+  }
+
+  .expandButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .expandedFilters {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .buttonGroup {
+    flex-direction: column;
+  }
+
+  .apartmentGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .pageLink {
+    min-width: 38px;
+    height: 38px;
+    padding: 0 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .apartmentGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .pagination {
+    gap: 4px;
+  }
+
+  .pageLink {
+    min-width: 34px;
+    height: 34px;
+    padding: 0 8px;
+    font-size: 13px;
+  }
+}

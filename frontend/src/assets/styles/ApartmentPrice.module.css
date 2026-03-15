@@ -1,0 +1,36 @@
+.priceBlock {
+  background: linear-gradient(135deg, var(--card-bg) 0%, var(--hover-bg) 100%);
+  padding: 20px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  border-left: 4px solid var(--primary-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s;
+}
+
+.priceBlock:hover {
+  transform: translateX(5px);
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.15);
+}
+
+.mainPrice {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--primary-color);
+  line-height: 1.2;
+  letter-spacing: -1px;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.pricePerMeter {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--card-border);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}

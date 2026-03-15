@@ -1,0 +1,44 @@
+.metaBlock {
+  background: var(--hover-bg);
+  padding: 16px;
+  border-radius: 16px;
+  font-size: 13px;
+  margin: 20px 0;
+  border: 1px solid var(--card-border);
+}
+
+.metaItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--card-border);
+  transition: background 0.3s;
+}
+
+.metaItem:last-child {
+  border-bottom: none;
+}
+
+.metaItem:hover {
+  background: var(--card-bg);
+  padding: 8px 12px;
+  margin: 0 -12px;
+  border-radius: 8px;
+}
+
+.metaLabel {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.metaValue {
+  color: var(--text-primary);
+  font-family: monospace;
+  font-weight: 600;
+  background: var(--card-bg);
+  padding: 4px 12px;
+  border-radius: 30px;
+  border: 1px solid var(--card-border);
+  font-size: 12px;
+}

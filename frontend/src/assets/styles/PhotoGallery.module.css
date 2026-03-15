@@ -1,0 +1,372 @@
+.photoGallery {
+  width: 100%;
+  background: var(--card-bg);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--card-border);
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.mainPhotoContainer {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background: var(--hover-bg);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.mainPhoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.mainPhoto:hover {
+  transform: scale(1.05);
+}
+
+.galleryNav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--card-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--card-border);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  opacity: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+.mainPhotoContainer:hover .galleryNav {
+  opacity: 1;
+}
+
+.galleryNav:hover {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.galleryNav.prev {
+  left: 15px;
+}
+
+.galleryNav.next {
+  right: 15px;
+}
+
+.photoCounter {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 600;
+  backdrop-filter: blur(4px);
+  z-index: 2;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.photoThumbnails {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  padding: 16px;
+  background: var(--card-bg);
+  border-top: 1px solid var(--card-border);
+  max-height: 100px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.photoThumbnails::-webkit-scrollbar {
+  width: 6px;
+}
+
+.photoThumbnails::-webkit-scrollbar-track {
+  background: var(--hover-bg);
+}
+
+.photoThumbnails::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+  border-radius: 3px;
+}
+
+.photoThumbnails::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+.thumbnail {
+  aspect-ratio: 1;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.2s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.thumbnail:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+  border-color: var(--primary-color);
+}
+
+.thumbnail.active {
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.galleryEmpty {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--hover-bg);
+  color: var(--text-muted);
+  border-radius: 20px;
+}
+
+.noPhotoIcon {
+  font-size: 64px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+/* Полноэкранный режим */
+.fullscreenGallery {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.98);
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+}
+
+.fullscreenGallery img {
+  max-width: 95vw;
+  max-height: 95vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  cursor: default;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.fullscreenNav {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 40px;
+  font-weight: 300;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  z-index: 1000000;
+  backdrop-filter: blur(5px);
+}
+
+.fullscreenNav:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: white;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+}
+
+.fullscreenNav.prev {
+  left: 30px;
+}
+
+.fullscreenNav.next {
+  right: 30px;
+}
+
+.fullscreenCounter {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 10px 24px;
+  border-radius: 40px;
+  font-size: 16px;
+  font-weight: 600;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 1000000;
+}
+
+.closeFullscreen {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  color: white;
+  z-index: 1000000;
+  backdrop-filter: blur(5px);
+}
+
+.closeFullscreen:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: white;
+  transform: rotate(90deg) scale(1.1);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+}
+
+/* Темная тема (уже через переменные, но добавим специфичные стили) */
+:global(.dark) .photoGallery {
+  background: var(--card-bg);
+}
+
+:global(.dark) .mainPhotoContainer {
+  background: var(--hover-bg);
+}
+
+:global(.dark) .galleryNav {
+  background: var(--card-bg);
+  color: var(--text-primary);
+  border-color: var(--card-border);
+}
+
+:global(.dark) .galleryNav:hover {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+:global(.dark) .photoThumbnails {
+  background: var(--card-bg);
+  border-top-color: var(--card-border);
+}
+
+:global(.dark) .photoThumbnails::-webkit-scrollbar-track {
+  background: var(--hover-bg);
+}
+
+:global(.dark) .galleryEmpty {
+  background: var(--hover-bg);
+  color: var(--text-muted);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .mainPhotoContainer {
+    height: 300px;
+  }
+
+  .photoThumbnails {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 4px;
+    padding: 12px;
+  }
+
+  .fullscreenNav {
+    width: 44px;
+    height: 44px;
+    font-size: 30px;
+  }
+
+  .fullscreenNav.prev {
+    left: 10px;
+  }
+
+  .fullscreenNav.next {
+    right: 10px;
+  }
+
+  .closeFullscreen {
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+  }
+
+  .fullscreenCounter {
+    bottom: 20px;
+    padding: 8px 20px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainPhotoContainer {
+    height: 250px;
+  }
+
+  .photoThumbnails {
+    grid-template-columns: repeat(4, 1fr);
+    padding: 10px;
+  }
+
+  .fullscreenNav {
+    width: 36px;
+    height: 36px;
+    font-size: 24px;
+  }
+
+  .fullscreenCounter {
+    bottom: 15px;
+    padding: 6px 16px;
+    font-size: 12px;
+  }
+}
